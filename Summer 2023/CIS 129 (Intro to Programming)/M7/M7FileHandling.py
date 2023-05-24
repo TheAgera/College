@@ -1,26 +1,30 @@
 import csv
 
-# Read patient file for Dr. Best
-dr_best_patients = []
-with open("dr_best_patients.csv", "r") as file:
-    reader = csv.reader(file)
-    for row in reader:
-        dr_best_patients.append(row)
+def add_to_csv(filename, name, address, birth_year):
+    with open(filename, 'a', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([name, address, birth_year])
 
-# Read patient file for Dr. Cushing
-dr_cushing_patients = []
-with open("dr_cushing_patients.csv", "r") as file:
-    reader = csv.reader(file)
-    for row in reader:
-        dr_cushing_patients.append(row)
+def create_sorted_csv(filename):
+    with open(filename, 'r') as csvfile:
+        reader = csv.reader(csvfile)
+        sorted_data = sorted(reader, key=lambda row: int(row[2]))
 
-# Merge the two lists
-merged_patients = dr_best_patients + dr_cushing_patients
+    with open('sorted_' + filename, 'w', newline='') as sorted_csvfile:
+        writer = csv.writer(sorted_csvfile)
+        writer.writerows(sorted_data)
 
-# Sort the merged list by birth year in ascending order
-sorted_patients = sorted(merged_patients, key=lambda x: int(x[2]))
+# Example usage
+filename = 'data.csv'
 
-# Display the sorted list of patients' names
-for patient in sorted_patients:
-    name = patient[0] + " " + patient[1]
-    print(name)
+while True:
+    name = input("Enter name (or 'quit' to exit): ")
+    if name.lower() == 'quit':
+        break
+
+    address = input("Enter home address: ")
+    birth_year = input("Enter birth year: ")
+
+    add_to_csv(filename, name, address, birth_year)
+
+create_sorted_csv(filename)
