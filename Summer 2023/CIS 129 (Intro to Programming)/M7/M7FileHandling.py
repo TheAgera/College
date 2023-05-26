@@ -1,3 +1,8 @@
+# The Apgar Medical group keeps a patient file for each doctor in the office. 
+# Each record contains the patient’s first and last name, home address, and birth year.
+# The records are sorted in ascending birth year order. Two doctors, Dr. Best and Dr. Cushing, have formed a partnership.
+# Create the flowchart and pseudocode that produces a merged list of patients’ names in ascending order by birth year.
+
 import csv
 
 def add_to_csv(filename, name, address, birth_year):
@@ -15,7 +20,7 @@ def create_sorted_csv(filename):
         writer.writerows(sorted_data)
 
 # Example usage
-filename = 'data.csv'
+filename = input("Please enter the filename for sorted patients: ")
 
 while True:
     name = input("Enter name (or 'quit' to exit): ")
