@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lavenderblush;
+  font-family: Arial, sans-serif;
+  color: plum;
+}
+
+#love-letter {
+  display: none;
+  padding: 20px;
+  margin-top: 20px;
+  border: 2px dashed plum;
+}
+
+#bear-container {
+  position: relative;
+  width: 256px;
+  height: 256px;
+  margin: 20px auto;
+}
+
+#bear {
+  width: 100%;
+  height: 100%;
+}
+
+#open-hidden-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none; /* Button is initially hidden */
+  background-color: plum;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+#open-hidden-message:hover {
+  background-color: palevioletred;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: plum;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: palevioletred;
+}
+
+</style>
+</head>
+<body>
+
+<h1>A Special Message Just For You ❤️</h1>
+
+<button id="open-letter" onclick="openLetter()">Open Me</button>
+
+<div id="love-letter">
+  <div id="bear-container">
+    <img id="bear" src="https://media.tenor.com/b7etKcO4RtwAAAAC/bear-hats-off.gif" alt="Animated bear">
+    <button id="open-hidden-message" onclick="openHiddenMessage()" style="opacity: 0;" aria-hidden="false" tabindex="0"></button>
+  </div>
+  
+  <p>Dear Maggie,</p>
+  <p>From the moment I met you, you made me a feel a wamrth and sense of security I have never felt before in my entire life. I could immediately tell you truly cared about me. I contribute that to me saying I love you after the first date (Yes, we will never forget how truly stupid that was of me and I hope to laugh about that forever). You are so sweet and I love talking to you and I love how much fun we have together when we are doing absolutely nothing (bloop, bweep, bweep, MEOW!) I love you so much, I hope one day we can live in a beatiful mountain home in Washington overlooking mountains with all the animals we could ever want with a nice pool and hottub. I know I haven't been good about expressing my love towards you, but I hope this letter is the start to you realizing how much I truly do care about and love you. You are my world and I am going to make sure you don't forget that.</p>
+  
+  <p>Love with your whole heart!,</p>
+  <p>Kyler Bubba Suess 😍</p>
+</div>
+
+<div id="hidden-message" style="display: none;">
+  <p>We should get rats!</p>
+</div>
+
+<script>
+function openLetter() {
+  document.getElementById('love-letter').style.display = 'block';
+  document.getElementById('open-letter').style.display = 'none';
+  document.getElementById('open-hidden-message').style.display = 'block'; /* Show the hidden message button when the letter is opened */
+}
+
+function openHiddenMessage() {
+  document.getElementById('hidden-message').style.display = 'block';
+  document.getElementById('open-hidden-message').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
